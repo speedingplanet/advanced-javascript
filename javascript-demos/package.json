@@ -1,16 +1,19 @@
 {
-	"name": "javascript-demos",
-	"private": true,
-	"version": "1.0.0",
+	"name": "javascript-examples",
+	"version": "3.0.0",
+	"description": "\"JavaScript examples for Speeding Planet classes\"",
+	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
+		"test": "echo \"Error: no test specified\" && exit 1",
 		"format": "prettier . --check",
 		"format:write": "prettier . --write",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-		"preview": "vite preview",
-		"test": "vitest"
-	}
+		"start": "http-server -p 3000 --cors -c-1",
+		"dev": "npm start",
+		"rest": "json-server --watch --port 8000 data/all-data.json"
+	},
+	"author": "John Paxton <pax@speedingplanet.com>",
+	"license": "ISC"
 }
