@@ -47,11 +47,3 @@ Car.prototype.getMake = function () {
 
 console.log(`My car's make: ${civic.getMake()}`);
 console.log(`My other car's make: ${otherCar.getMake()}`);
-
-class Food {
-	edible = true;
-}
-
-class Fruit extends Food {
-	sweet = true;
-}
