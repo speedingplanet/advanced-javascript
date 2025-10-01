@@ -1,8 +1,8 @@
 {
 	"folders": [
 		{
-			"path": "javascript-demos"
-		}
+			"path": "javascript-demos",
+		},
 	],
 	"settings": {
 		"workbench.colorCustomizations": {
@@ -22,8 +22,18 @@
 			"titleBar.activeBackground": "#f9e64f",
 			"titleBar.activeForeground": "#15202b",
 			"titleBar.inactiveBackground": "#f9e64f99",
-			"titleBar.inactiveForeground": "#15202b99"
+			"titleBar.inactiveForeground": "#15202b99",
 		},
-		"peacock.color": "#f9e64f"
-	}
+		"peacock.color": "#f9e64f",
+	},
+	"launch": {
+		"configurations": [
+			{
+				"type": "chrome",
+				"name": "http://127.0.0.1:3000/demos/this-keyword.html",
+				"request": "launch",
+				"url": "http://127.0.0.1:3000/demos/this-keyword.html",
+			},
+		],
+	},
 }

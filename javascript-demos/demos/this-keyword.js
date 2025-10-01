@@ -6,6 +6,9 @@ function getX() {
 // `this` refers to the global context
 globalThis.x = 'Global level x';
 
+let getXLaterFnThis;
+let topLevelThis = this;
+
 let obj = {
 	x: 'Object level x',
 	// `this` refers to the parent context, here it is `obj`
@@ -27,24 +30,38 @@ class Foo {
 	}
 		*/
 
+	// `this` is known to be weird with setTimeout, so let's not use it
+	// reference: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout#the_this_problem
+
 	getXLaterFn() {
+		getXLaterFnThis = this;
+		getXLaterFnThis.x = 'getXLaterFn CONTEXT';
 		setTimeout(function () {
+			// The anonymous function declaration is effectively running here, so `this` refers to
+			// the context of getXLaterFn()
 			// `this` refers to the parent context, here it is Foo.getXLaterFn()
 			// console.log(`getXLaterFn(): ${this.x}`);
 			try {
 				console.log(`getXLaterFn(): ${getX()}`);
+				console.log('Added a line');
+				// console.log(`(this.x version line 38) getXLaterFn(): ${this.x}`);
 			} catch {
-				console.warn('getXLaterFn: could not access X because "this" is undefined');
+				console.warn(
+					'(this.x version) getXLaterFn: could not access X because "this" is undefined'
+				);
 			}
 		}, 100);
 	}
 
 	getXLaterArrow() {
+		// Arrow function is effectively running here, so `this` refers to the class instance
+
 		setTimeout(() => {
 			// Arrow functions inherit the parent context. So `this.x` here is running within
 			// getXLaterArrow, instead of one level down in this callback.
 			// Here `this` refers to the instance of Foo.
 			console.log(`getXLaterArrow(): ${this.x}`);
+			// console.log(`getXLaterArrow(): ${getX()}`);
 		}, 100);
 	}
 }
@@ -65,9 +82,11 @@ console.log(`Calling Foo.getX(): ${f.getX()}`);
 console.log(`Getting X later... `);
 console.log('...using a function declaration');
 f.getXLaterFn();
+
 console.log('...using an arrow function');
 f.getXLaterArrow();
 
+/*
 // False in both strict and non-strict mode
 console.log(globalThis === undefined);
 
@@ -116,3 +135,4 @@ let c = new Container();
 c.levelOne();
 console.log('Calling arrowGetY() outside of Container:');
 arrowGetY();
+*/
