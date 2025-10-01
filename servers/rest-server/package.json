@@ -1,0 +1,17 @@
+{
+	"name": "rest-server",
+	"private": true,
+	"version": "3.0.0",
+	"main": "index.js",
+	"scripts": {
+		"start": "json-server --port 8000 rest-server-data.json",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "John Paxton <pax@speedingplanet.com>",
+	"license": "ISC",
+	"description": "RESTful server for Pluralsight's classes",
+	"dependencies": {
+		"json-server": "^0.17.4"
+	}
+}
