@@ -1,0 +1,27 @@
+.countries-grid {
+	height: 80vh;
+	display: grid;
+	grid-template-columns: repeat(var(--columns), 1fr);
+	grid-auto-rows: auto;
+}
+.countries-grid-head,
+.countries-grid-body {
+	display: grid;
+	grid-column: span var(--columns);
+	grid-template-columns: subgrid;
+	grid-auto-rows: auto;
+}
+
+.countries-grid-head {
+	cursor: pointer;
+	padding-bottom: 2px;
+}
+
+.countries-grid-body {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.countries-grid-header {
+	border-bottom: 2px black double;
+}

@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should compare snapshots 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <label
+        for="favorite-fruit"
+      >
+        Add your favorite fruit:
+      </label>
+      <input
+        id="favorite-fruit"
+        name="favFruit"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="btn btn-primary"
+    >
+      Click me
+    </button>
+    <ul>
+      <li>
+        Apples
+      </li>
+      <li
+        class="_bananas_dead55"
+      >
+        Bananas
+      </li>
+      <li>
+        Peaches
+      </li>
+      <li
+        data-testid="oranges"
+      >
+        Oranges
+      </li>
+      <li />
+    </ul>
+  </div>
+</DocumentFragment>
+`;

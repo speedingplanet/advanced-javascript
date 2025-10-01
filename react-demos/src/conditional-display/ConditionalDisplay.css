@@ -1,0 +1,13 @@
+.cd-container {
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 10px;
+	padding: 10px;
+}
+
+.cd-box {
+	border: 2px red dashed;
+	padding: 10px;
+}

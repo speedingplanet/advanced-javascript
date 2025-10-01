@@ -1,0 +1,4 @@
+button.btn.btn-small.btn-really-small {
+	transform: scale(0.9);
+	padding: 2px 7px;
+}
